@@ -50,14 +50,17 @@ export const PROJECTS: Project[] = [
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: 'Frontend',
+    icon: 'Layout',
     skills: ['HTML', 'CSS', 'Tailwind', 'JavaScript', 'TypeScript', 'React', 'Next.js'],
   },
   {
     title: 'Backend',
+    icon: 'Server',
     skills: ['Node.js', 'NestJS', 'C#', '.NET', 'ASP.NET', 'GraphQL'],
   },
   {
     title: 'Database & Cloud',
+    icon: 'Cloud',
     skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS (S3)', 'DigitalOcean', 'Cloudflare'],
   },
 ];

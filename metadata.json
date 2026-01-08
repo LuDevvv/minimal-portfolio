@@ -1,5 +1,19 @@
 {
-  "name": "Minimalist Developer Portfolio",
-  "description": "A high-end, minimalist personal portfolio for a Senior Fullstack Developer, featuring clean typography, smooth animations, and a product-oriented UX.",
-  "requestFramePermissions": []
+  "name": "minimal-portfolio",
+  "displayName": "Minimal Portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website built with React and Tailwind CSS to showcase my experience, projects and technical background as a Fullstack Developer.",
+  "author": {
+    "name": "Luis Angel Garcia Louis",
+    "role": "Fullstack Developer",
+    "email": "ludevgarcialouis@gmail.com"
+  },
+  "stack": [
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Vite",
+    "Framer Motion"
+  ],
+  "license": "MIT"
 }

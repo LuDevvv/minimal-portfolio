@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ExternalLink, Github } from 'lucide-react';
 import { PROJECTS } from '../constants';
 
 const Projects: React.FC = () => {
@@ -23,20 +23,26 @@ const Projects: React.FC = () => {
           >
             <div className="relative overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/50">
               <div className={`aspect-video overflow-hidden ${idx === 0 ? 'md:aspect-[21/9]' : 'aspect-video'}`}>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                <div className="flex gap-4">
-                  <a href={project.liveUrl} className="px-5 py-2.5 bg-accent text-dark text-sm font-bold rounded-full">Live Demo</a>
-                  <a href={project.githubUrl} className="px-5 py-2.5 bg-white/10 backdrop-blur-md text-white text-sm font-bold rounded-full border border-white/20">GitHub</a>
+              <div className="absolute inset-0 bg-dark/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-8">
+                <div className="flex flex-col gap-3 w-full max-w-[160px]">
+                  <a href={project.liveUrl} className="w-full px-5 py-3 bg-accent text-dark text-xs font-black uppercase tracking-widest rounded-xl flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all">
+                    <span>Live Demo</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <a href={project.githubUrl} className="w-full px-5 py-3 bg-white/10 text-white text-xs font-black uppercase tracking-widest rounded-xl border border-white/20 flex items-center justify-center gap-2 hover:bg-white/20 active:scale-95 transition-all">
+                    <span>GitHub</span>
+                    <Github className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               </div>
             </div>
-            
+
             <div className="px-2">
               <div className="flex items-center gap-2 mb-2">
                 <h4 className="text-2xl font-black tracking-tight group-hover:text-accent transition-colors">

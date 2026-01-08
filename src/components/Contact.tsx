@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Mail, Linkedin, Github } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -16,17 +16,26 @@ const Contact: React.FC = () => {
             <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-sm mb-8">
               Disponible para nuevas oportunidades y colaboraciones técnicas de alto impacto.
             </p>
-            <a 
-              href="mailto:hola@luisgarcia.dev" 
-              className="text-xl md:text-2xl font-bold border-b-2 border-accent pb-1 hover:text-accent transition-all"
+            <a
+              href="mailto:hola@luisgarcia.dev"
+              className="group flex items-center gap-3 text-xl md:text-2xl font-bold hover:text-accent transition-all"
             >
-              hola@luisgarcia.dev
+              <div className="p-3 bg-accent/10 rounded-xl group-hover:bg-accent group-hover:text-dark transition-all">
+                <Mail className="w-6 h-6" />
+              </div>
+              <span className="border-b-2 border-accent/20 group-hover:border-accent transition-all">
+                hola@luisgarcia.dev
+              </span>
             </a>
           </motion.div>
 
-          <div className="flex md:justify-end space-x-8">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-accent transition-colors">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-accent transition-colors">GitHub</a>
+          <div className="flex md:justify-end space-x-6">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 border border-zinc-200 dark:border-zinc-800 rounded-full text-zinc-400 hover:border-accent hover:text-accent transition-all">
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-3 border border-zinc-200 dark:border-zinc-800 rounded-full text-zinc-400 hover:border-accent hover:text-accent transition-all">
+              <Github className="w-5 h-5" />
+            </a>
           </div>
         </div>
 
