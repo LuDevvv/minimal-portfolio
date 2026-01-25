@@ -1,0 +1,122 @@
+---
+import "../styles/tailwind.css";
+import "@fontsource/plus-jakarta-sans";
+
+interface Props {
+    title: string;
+    description?: string;
+    image?: string;
+    canonicalURL?: string;
+    type?: "website" | "article";
+    lang?: string;
+}
+
+const {
+    title,
+    description = "Luis — Developer Portfolio",
+    image = "/og-image.png",
+    canonicalURL = Astro.url.href,
+    type = "website",
+    lang = "es",
+} = Astro.props;
+
+const siteTitle = title ? `${title} | Louis` : "Louis — Developer Portfolio";
+---
+
+<!doctype html>
+<html lang={lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+
+        <!-- Primary Meta Tags -->
+        <title>{siteTitle}</title>
+        <meta name="title" content={siteTitle} />
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content={type} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={siteTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.site).href} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={siteTitle} />
+        <meta property="twitter:description" content={description} />
+        <meta
+            property="twitter:image"
+            content={new URL(image, Astro.site).href}
+        />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Theme Initialization -->
+        <script is:inline>
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
+                }
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            })();
+
+            if (theme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                document.documentElement.classList.add("dark");
+            }
+
+            window.localStorage.setItem("theme", theme);
+        </script>
+    </head>
+    <body>
+        <slot />
+
+        <script>
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1,
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.addEventListener("astro:page-load", () => {
+                document
+                    .querySelectorAll(".reveal")
+                    .forEach((el) => observer.observe(el));
+            });
+
+            // Initial load support
+            document
+                .querySelectorAll(".reveal")
+                .forEach((el) => observer.observe(el));
+        </script>
+    </body>
+</html>
