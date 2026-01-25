@@ -1,0 +1,171 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+import { ArrowRight, Terminal } from "lucide-astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section
+    class="relative pt-24 pb-16 md:pt-40 md:pb-24 px-6 overflow-hidden"
+    id="hero"
+>
+    <!-- Background Blobs -->
+    <div
+        class="absolute top-0 -left-4 w-72 h-72 bg-primary opacity-20 blur-[100px] animate-blob"
+    >
+    </div>
+    <div
+        class="absolute top-0 -right-4 w-72 h-72 bg-accent opacity-20 blur-[100px] animate-blob animation-delay-2000"
+    >
+    </div>
+    <div
+        class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary opacity-10 blur-[120px] rounded-full pointer-events-none"
+    >
+    </div>
+
+    <div class="container mx-auto relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            <!-- Text Content -->
+            <div class="lg:w-3/5 text-center lg:text-left">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-lighter border border-glass-border text-primary text-xs font-bold mb-8 animate-fade-in-up"
+                >
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+                        ></span>
+                        <span
+                            class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+                        ></span>
+                    </span>
+                    {t("hero.badge")}
+                </div>
+
+                <h1
+                    class="text-5xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tight text-fg animate-fade-in-up"
+                    style="animation-delay: 0.1s"
+                >
+                    {
+                        lang === "es" ? (
+                            <>
+                                Ingeniería de <br /> Software para <br />{" "}
+                                <span class="text-gradient">
+                                    Ideas Escalables.
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                Software Engineering <br /> to{" "}
+                                <span class="text-gradient">Scale Ideas.</span>
+                            </>
+                        )
+                    }
+                </h1>
+
+                <p
+                    class="text-xl text-fg-muted mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-in-up"
+                    style="animation-delay: 0.2s"
+                >
+                    {t("hero.description")}
+                </p>
+
+                <div
+                    class="flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-in-up mb-20"
+                    style="animation-delay: 0.3s"
+                >
+                    <!-- CTA: Book Call (Primary) -->
+                    <a
+                        href="#contact"
+                        class="px-8 py-4 bg-primary hover:bg-secondary text-white font-bold rounded-2xl transition-all flex items-center gap-2 shadow-lg shadow-primary/25 hover:shadow-primary/40 active:scale-95"
+                    >
+                        {t("hero.cta.talk")}
+                        <ArrowRight class="w-5 h-5" />
+                    </a>
+
+                    <!-- CTA: View Packages (Secondary) -->
+                    <a
+                        href="#pricing"
+                        class="px-8 py-4 bg-surface hover:bg-surface-lighter text-fg font-bold rounded-2xl border border-glass-border transition-all active:scale-95"
+                    >
+                        {t("hero.cta.packages")}
+                    </a>
+                </div>
+
+                <!-- Stats Section -->
+                <div
+                    class="flex flex-wrap justify-center lg:justify-start gap-12 animate-fade-in-up"
+                    style="animation-delay: 0.4s"
+                >
+                    <div>
+                        <div class="text-4xl font-black text-fg mb-1">4+</div>
+                        <div
+                            class="text-[10px] font-bold text-fg-muted uppercase tracking-widest"
+                        >
+                            {t("hero.stats.exp")}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-black text-fg mb-1">20+</div>
+                        <div
+                            class="text-[10px] font-bold text-fg-muted uppercase tracking-widest"
+                        >
+                            {t("hero.stats.projects")}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-black text-fg mb-1">100%</div>
+                        <div
+                            class="text-[10px] font-bold text-fg-muted uppercase tracking-widest"
+                        >
+                            {t("hero.stats.satisfaction")}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Content -->
+            <div
+                class="lg:w-2/5 relative animate-fade-in-up"
+                style="animation-delay: 0.5s"
+            >
+                <div class="relative group perspective-1000">
+                    <div
+                        class="absolute inset-0 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/30 transition-all"
+                    >
+                    </div>
+                    <div
+                        class="relative glass p-4 rounded-4xl border border-glass-border shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500"
+                    >
+                        <img
+                            src="/assets/portrait.jpg"
+                            class="rounded-2xl w-full grayscale contrast-125 block glow-image"
+                            alt="Louis Portfolio"
+                        />
+                        <div
+                            class="absolute -bottom-6 -left-6 glass p-6 rounded-2xl border border-glass-border shadow-xl hidden md:block"
+                        >
+                            <Terminal class="text-primary mb-2 w-6 h-6" />
+                            <div
+                                class="font-mono text-[10px] text-fg-muted leading-tight"
+                            >
+                                &gt; npx build-success<br />
+                                &gt; status: 200 OK<br />
+                                &gt; user_growth: 300%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+    .glow-image {
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+</style>

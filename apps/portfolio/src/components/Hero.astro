@@ -1,0 +1,201 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+import { ArrowRight, Terminal } from "lucide-astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section
+    class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden"
+    id="hero"
+>
+    <!-- Background Blobs -->
+    <div
+        class="absolute top-0 -left-4 w-72 h-72 bg-primary opacity-20 blur-[100px] animate-blob"
+    >
+    </div>
+    <div
+        class="absolute top-0 -right-4 w-72 h-72 bg-accent opacity-20 blur-[100px] animate-blob animation-delay-2000"
+    >
+    </div>
+    <div
+        class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary opacity-10 blur-[120px] rounded-full pointer-events-none"
+    >
+    </div>
+
+    <div class="container mx-auto relative z-10 py-10 md:py-20">
+        <div
+            class="flex flex-col xl:flex-row items-center justify-center gap-16 xl:gap-48 px-2"
+        >
+            <!-- Text Content -->
+            <div
+                class="text-center xl:text-left flex flex-col items-center xl:items-start max-w-2xl"
+            >
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-lighter border border-glass-border text-primary text-xs font-bold mb-8 animate-fade-in-up"
+                >
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+                        ></span>
+                        <span
+                            class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+                        ></span>
+                    </span>
+                    {t("hero.badge")}
+                </div>
+
+                <h1
+                    class="text-5xl md:text-8xl font-black mb-4 leading-none tracking-tighter text-fg animate-fade-in-up"
+                    style="animation-delay: 0.1s"
+                >
+                    {t("hero.title")}
+                </h1>
+                <h2
+                    class="text-3xl md:text-6xl font-bold mb-8 text-gradient animate-fade-in-up"
+                    style="animation-delay: 0.15s"
+                >
+                    {t("hero.subtitle")}
+                </h2>
+
+                <p
+                    class="text-xl text-fg-muted mb-10 leading-relaxed max-w-xl animate-fade-in-up"
+                    style="animation-delay: 0.2s"
+                >
+                    {t("hero.description")}
+                </p>
+
+                <div
+                    class="flex flex-wrap justify-center xl:justify-start gap-4 animate-fade-in-up mb-20"
+                    style="animation-delay: 0.3s"
+                >
+                    <!-- CTA: Works (Primary) -->
+                    <a
+                        href="#projects"
+                        class="px-8 py-4 bg-primary hover:bg-secondary text-white font-bold rounded-2xl transition-all flex items-center gap-2 shadow-lg shadow-primary/25 hover:shadow-primary/40 active:scale-95"
+                    >
+                        {t("hero.cta.projects")}
+                        <ArrowRight class="w-5 h-5" />
+                    </a>
+
+                    <!-- CTA: Contact (Secondary) -->
+                    <a
+                        href="#contact"
+                        class="px-8 py-4 bg-surface hover:bg-surface-lighter text-fg font-bold rounded-2xl border border-glass-border transition-all active:scale-95"
+                    >
+                        {t("hero.cta.contact")}
+                    </a>
+                </div>
+
+                <!-- Stats Section -->
+                <div
+                    class="grid grid-cols-2 md:flex md:flex-wrap justify-center xl:justify-start gap-4 md:gap-8 animate-fade-in-up"
+                    style="animation-delay: 0.4s"
+                >
+                    <div class="group/stat text-center md:text-left">
+                        <div
+                            class="text-4xl font-black text-fg mb-1 group-hover:text-primary transition-colors"
+                        >
+                            3+
+                        </div>
+                        <div
+                            class="text-[10px] font-bold text-fg-muted uppercase tracking-widest"
+                        >
+                            {t("hero.stats.exp")}
+                        </div>
+                    </div>
+                    <div class="group/stat text-center md:text-left">
+                        <div
+                            class="text-4xl font-black text-fg mb-1 group-hover:text-primary transition-colors"
+                        >
+                            1.2k+
+                        </div>
+                        <div
+                            class="text-[10px] font-bold text-fg-muted uppercase tracking-widest"
+                        >
+                            {t("hero.stats.commits")}
+                        </div>
+                    </div>
+                    <div
+                        class="group/stat col-span-2 md:col-span-1 text-center md:text-left"
+                    >
+                        <div
+                            class="text-4xl font-black text-fg mb-1 group-hover:text-primary transition-colors"
+                        >
+                            15+
+                        </div>
+                        <div
+                            class="text-[10px] font-bold text-fg-muted uppercase tracking-widest"
+                        >
+                            {t("hero.stats.projects")}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Content -->
+            <div
+                class="relative animate-fade-in-up flex justify-center"
+                style="animation-delay: 0.5s"
+            >
+                <div
+                    class="relative group perspective-2000 w-full max-w-md xl:max-w-xl"
+                >
+                    <div
+                        class="absolute inset-x-0 -bottom-12 h-24 bg-primary/20 blur-[100px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
+                    >
+                    </div>
+                    <div
+                        class="relative glass p-4 md:p-6 rounded-[4rem] border border-glass-border shadow-2xl transition-all duration-700 ease-out"
+                    >
+                        <div
+                            class="overflow-hidden rounded-[3rem] bg-canvas relative"
+                        >
+                            <img
+                                src="/assets/portrait.jpg"
+                                class="w-full h-auto aspect-4/5 object-cover grayscale brightness-95 group-hover:brightness-110 group-hover:grayscale-0 transition-all duration-1000 block"
+                                alt="Luis Garcia"
+                            />
+                            <div
+                                class="absolute inset-0 bg-linear-to-t from-canvas/80 via-transparent to-transparent opacity-60"
+                            >
+                            </div>
+                        </div>
+
+                        <!-- Terminal Detail -->
+                        <div
+                            class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 glass p-5 md:p-10 rounded-2xl md:rounded-3xl border border-glass-border shadow-2xl block group-hover:scale-105 transition-transform duration-500 z-20"
+                        >
+                            <Terminal
+                                class="text-primary mb-3 md:mb-4 w-5 h-5 md:w-7 md:h-7"
+                            />
+                            <div
+                                class="font-mono text-[10px] md:text-sm text-fg leading-relaxed"
+                            >
+                                <span class="text-primary/70">&gt;</span> role: <span
+                                    class="text-emerald-500">fullStack_dev</span
+                                ><br />
+                                <span class="text-primary/70">&gt;</span> stack: <span
+                                    class="text-blue-400"
+                                    >[typescript, react, node]</span
+                                ><br />
+                                <span class="text-primary/70">&gt;</span> status:
+                                <span class="text-primary">open_to_work</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+    .glow-image {
+        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    }
+</style>

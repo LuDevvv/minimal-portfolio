@@ -1,0 +1,92 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+import { Layers, Layout, Cpu, Monitor, Bot } from "lucide-astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const services = [
+    {
+        icon: Layers,
+        title: lang === "es" ? "Web Apps & MVPs" : "Web Apps & MVPs",
+        description:
+            lang === "es"
+                ? "Desarrollo rápido de MVPs escalables usando React, Next.js y TypeScript. Enfocado en validación."
+                : "Fast development of scalable MVPs using React, Next.js, and TypeScript. Focused on validation.",
+    },
+    {
+        icon: Layout,
+        title: lang === "es" ? "Sitios de Conversión" : "Conversion Sites",
+        description:
+            lang === "es"
+                ? "Landing pages optimizadas para rendimiento, SEO y conversión de usuarios."
+                : "Landing pages optimized for performance, SEO, and user conversion.",
+    },
+    {
+        icon: Cpu,
+        title: lang === "es" ? "APIs & Backend" : "APIs & Backend",
+        description:
+            lang === "es"
+                ? "Arquitectura robusta en Node.js, NestJS y .NET. Integraciones seguras y documentadas."
+                : "Robust architecture in Node.js, NestJS, and .NET. Secure and documented integrations.",
+    },
+    {
+        icon: Monitor,
+        title: lang === "es" ? "Plataformas SaaS" : "SaaS Platforms",
+        description:
+            lang === "es"
+                ? "Dashboards personalizados, herramientas internas y visualización de datos a medida."
+                : "Custom dashboards, internal tools, and tailored data visualization.",
+    },
+    {
+        icon: Bot,
+        title: lang === "es" ? "Automatización & IA" : "AI Automation",
+        description:
+            lang === "es"
+                ? "Agentes inteligentes e integración de modelos de IA para potenciar tu negocio."
+                : "Intelligent agents and AI model integration to empower your business.",
+    },
+];
+---
+
+<section id="services" class="py-16 md:py-24 px-6 relative reveal">
+    <div class="container mx-auto">
+        <!-- Section Header -->
+        <div class="mb-16 max-w-2xl">
+            <span
+                class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-primary uppercase bg-primary/10 rounded-full mb-4"
+            >
+                {t("services.badge")}
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gradient">
+                {t("services.title")}
+            </h2>
+            <p class="text-lg text-fg-muted leading-relaxed">
+                {
+                    lang === "es"
+                        ? "Cierro la brecha entre la lógica de negocio compleja y experiencias de usuario excepcionales."
+                        : "Bridging the gap between complex business logic and exceptional user experiences."
+                }
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {
+                services.map((service) => (
+                    <div class="p-8 rounded-3xl glass border border-glass-border hover:border-primary/30 transition-all duration-300 card-gradient group">
+                        <div class="w-14 h-14 rounded-2xl bg-surface-lighter flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                            <service.icon class="text-primary group-hover:text-white w-7 h-7" />
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-fg">
+                            {service.title}
+                        </h3>
+                        <p class="text-fg-muted leading-relaxed text-sm">
+                            {service.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

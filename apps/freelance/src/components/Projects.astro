@@ -1,0 +1,109 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+import { ArrowRight, ExternalLink } from "lucide-astro";
+import { getCollection } from "astro:content";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Dynamically fetch projects
+const allProjects = await getCollection("projects");
+const projects = allProjects
+    .filter((p) => p.id.startsWith(lang + "/"))
+    .sort((a, b) => {
+        if (!a.data.publishDate || !b.data.publishDate) return 0;
+        return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+    })
+    .map((p) => {
+        const cleanSlug = p.id.replace(lang + "/", "").replace(".md", "");
+        const href =
+            lang === "es"
+                ? `/projects/${cleanSlug}`
+                : `/en/projects/${cleanSlug}`;
+
+        return {
+            ...p.data,
+            link: href, // Internal detailed page link
+            image: p.data.img,
+        };
+    });
+---
+
+<section id="projects" class="py-16 md:py-24 px-6 bg-surface reveal">
+    <div class="container mx-auto">
+        <div
+            class="flex flex-col md:flex-row md:items-end justify-between mb-16"
+        >
+            <div class="max-w-2xl">
+                <span
+                    class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-primary uppercase bg-primary/10 rounded-full mb-4"
+                >
+                    {t("projects.badge")}
+                </span>
+                <h2
+                    class="text-4xl md:text-5xl font-extrabold mb-6 text-gradient"
+                >
+                    {t("projects.title")}
+                </h2>
+                <p class="text-lg text-fg-muted leading-relaxed">
+                    {t("projects.description")}
+                </p>
+            </div>
+
+            <a
+                href={lang === "es" ? "/projects" : "/en/projects"}
+                class="hidden md:inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all mb-4 md:mb-0 opacity-0 pointer-events-none"
+            >
+                {
+                    /* Hidden for now as we don't have a main index page for projects yet, or we link to top */
+                }
+                {t("projects.cta")}
+                <ArrowRight class="w-5 h-5" />
+            </a>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            {
+                projects.map((project) => (
+                    <div class="group relative flex flex-col overflow-hidden rounded-3xl bg-canvas border border-border hover:border-primary/50 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
+                        <div class="aspect-video w-full overflow-hidden relative">
+                            <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 z-10 transition-colors duration-500" />
+                            {project.image && (
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                            )}
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <div class="flex gap-2 mb-6 flex-wrap">
+                                {project.tags.map((tag) => (
+                                    <span class="px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-surface-lighter text-fg-muted rounded-lg border border-border/50">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 text-fg flex items-center gap-3 group-hover:text-primary transition-colors">
+                                {project.title}
+                                <ArrowRight class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                            </h3>
+                            <p class="text-fg-muted text-base leading-relaxed mb-8 flex-1">
+                                {project.description}
+                            </p>
+                            <a
+                                href={project.link}
+                                class="mt-auto inline-flex items-center justify-between w-full py-4 px-6 bg-surface-lighter rounded-xl font-bold text-sm text-fg group-hover:bg-primary group-hover:text-white transition-all"
+                            >
+                                {lang === "es"
+                                    ? "Ver Detalles"
+                                    : "View Details"}
+                                <ExternalLink class="w-4 h-4" />
+                            </a>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

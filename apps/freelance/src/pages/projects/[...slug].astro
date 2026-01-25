@@ -1,0 +1,200 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { ArrowLeft, ExternalLink, Calendar } from "lucide-astro";
+
+export async function getStaticPaths() {
+    const projects = await getCollection("projects", ({ id }) =>
+        id.startsWith("es/"),
+    );
+    return projects.map((entry) => ({
+        params: { slug: entry.id.replace("es/", "").replace(".md", "") },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} lang="es">
+    <Header />
+
+    <main class="pt-24 min-h-screen pb-20 bg-canvas">
+        <!-- Hero Project -->
+        <div class="container mx-auto px-6">
+            <a
+                href="/#projects"
+                class="inline-flex items-center gap-2 text-fg-muted hover:text-primary transition-colors mb-12 font-bold text-sm tracking-wide uppercase hover:-translate-x-1 duration-300"
+            >
+                <ArrowLeft class="w-4 h-4" />
+                Volver a Proyectos
+            </a>
+
+            <div
+                class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24"
+            >
+                <!-- Main Content (Left) -->
+                <div
+                    class="lg:col-span-5 order-2 lg:order-1 flex flex-col justify-center"
+                >
+                    <h1
+                        class="text-5xl md:text-7xl font-black text-fg mb-8 leading-[0.9] tracking-tighter"
+                    >
+                        {entry.data.title}
+                    </h1>
+                    <div class="h-1 w-20 bg-primary mb-8 rounded-full"></div>
+
+                    <p
+                        class="text-2xl text-fg-muted mb-10 leading-relaxed font-light text-pretty border-l-2 border-glass-border pl-6"
+                    >
+                        {entry.data.description}
+                    </p>
+
+                    <div class="flex flex-wrap gap-3 mb-12">
+                        {
+                            entry.data.tags.map((tag) => (
+                                <span class="px-4 py-2 bg-surface text-fg border border-glass-border rounded-xl text-xs font-bold uppercase tracking-wider shadow-sm">
+                                    {tag}
+                                </span>
+                            ))
+                        }
+                    </div>
+
+                    <div class="flex items-center gap-6">
+                        {
+                            entry.data.link && (
+                                <a
+                                    href={entry.data.link}
+                                    target="_blank"
+                                    class="px-8 py-4 bg-primary text-white rounded-2xl font-bold hover:bg-secondary transition-all hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 inline-flex items-center gap-3"
+                                >
+                                    Visitar Proyecto
+                                    <ExternalLink class="w-5 h-5" />
+                                </a>
+                            )
+                        }
+                    </div>
+                </div>
+
+                <!-- Image (Right) -->
+                <div
+                    class="lg:col-span-7 order-1 lg:order-2 group perspective-1000"
+                >
+                    {
+                        entry.data.img && (
+                            <div class="relative rounded-[2.5rem] overflow-hidden glass border border-glass-border shadow-2xl rotate-1 group-hover:rotate-0 transition-transform duration-700 w-full aspect-[4/3] md:aspect-video object-cover">
+                                <img
+                                    src={entry.data.img}
+                                    alt={entry.data.title}
+                                    class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+
+            <!-- Content Markdown Improved -->
+            <div class="max-w-4xl mx-auto relative">
+                <!-- Decorative line -->
+                <div
+                    class="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 to-transparent hidden md:block opacity-30"
+                >
+                </div>
+
+                <article
+                    class="prose prose-xl prose-invert max-w-none md:pl-16 relative"
+                >
+                    <Content />
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</BaseLayout>
+
+<style is:global>
+    /* Custom Typography for Markdown Content */
+    .prose h2 {
+        font-size: 2.25rem;
+        font-weight: 900;
+        color: var(--color-fg);
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        letter-spacing: -0.02em;
+        position: relative;
+    }
+
+    .prose h2::before {
+        content: "#";
+        position: absolute;
+        left: -2rem;
+        color: var(--color-primary);
+        opacity: 0.5;
+        font-weight: 300;
+    }
+
+    .prose h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-fg);
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .prose h3::before {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+    }
+
+    .prose p {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: var(--color-fg-muted);
+        margin-bottom: 2rem;
+    }
+
+    .prose strong {
+        color: var(--color-fg);
+        font-weight: 700;
+    }
+
+    .prose ul {
+        margin-bottom: 2rem;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .prose li {
+        position: relative;
+        padding-left: 1.75rem;
+        margin-bottom: 0.75rem;
+        color: var(--color-fg-muted);
+    }
+
+    .prose li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .prose h2::before {
+            display: none;
+        }
+    }
+</style>

@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://withlouis.com/sitemap-index.xml
+
+# Disallow admin/private paths
+Disallow: /private/
+Disallow: /api/

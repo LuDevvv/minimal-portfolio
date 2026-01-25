@@ -1,0 +1,169 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+import { Database, Cloud, Layout, Wrench } from "lucide-astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface Tech {
+    name: string;
+    slug?: string;
+    themeAware?: boolean;
+    forceColor?: string;
+    customUrl?: string;
+}
+
+interface SkillCategory {
+    icon: any;
+    title: string;
+    color: string;
+    iconColor: string;
+    techs: Tech[];
+}
+
+const skills: SkillCategory[] = [
+    {
+        icon: Layout,
+        title: t("skills.frontend.title"),
+        color: "from-blue-500/20 to-indigo-500/20",
+        iconColor: "text-blue-400",
+        techs: [
+            { name: "React", slug: "react" },
+            { name: "Next.js", slug: "nextdotjs", themeAware: true },
+            { name: "Astro", slug: "astro", themeAware: true },
+            { name: "Tailwind", slug: "tailwindcss" },
+            { name: "TypeScript", slug: "typescript" },
+            { name: "Framer Motion", slug: "framer" },
+            { name: "JavaScript", slug: "javascript" }
+        ]
+    },
+    {
+        icon: Database,
+        title: t("skills.backend.title"),
+        color: "from-emerald-500/20 to-teal-500/20",
+        iconColor: "text-emerald-400",
+        techs: [
+            { name: "Node.js", slug: "nodedotjs" },
+            { name: "Express", slug: "express", themeAware: true },
+            { name: "NestJS", slug: "nestjs" },
+            { name: "C#", customUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" },
+            { name: "PostgreSQL", slug: "postgresql" },
+            { name: "MySQL", slug: "mysql" },
+            { name: "Redis", slug: "redis" }
+        ]
+    },
+    {
+        icon: Cloud,
+        title: t("skills.cloud.title"),
+        color: "from-purple-500/20 to-pink-500/20",
+        iconColor: "text-purple-400",
+        techs: [
+            { name: "AWS", slug: "amazonaws", themeAware: true },
+            { name: "DigitalOcean", slug: "digitalocean" },
+            { name: "Supabase", slug: "supabase" },
+            { name: "Cloudinary", slug: "cloudinary" },
+            { name: "Railway", slug: "railway", themeAware: true },
+            { name: "Docker", slug: "docker" },
+            { name: "Vercel", slug: "vercel", themeAware: true }
+        ]
+    },
+    {
+        icon: Wrench,
+        title: t("skills.tools.title"),
+        color: "from-amber-500/20 to-orange-500/20",
+        iconColor: "text-amber-400",
+        techs: [
+            { name: "Postman", slug: "postman" },
+            { name: "Figma", slug: "figma" },
+            { name: "Git", slug: "git" },
+            { name: "GitHub", slug: "github", themeAware: true },
+            { name: "Vite", slug: "vite" },
+            { name: "GitHub Actions", slug: "githubactions", themeAware: true }
+        ]
+    }
+];
+---
+
+<section id="services" class="py-24 md:py-32 px-6 relative reveal overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-7xl pointer-events-none -z-10">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full"></div>
+    </div>
+
+    <div class="container mx-auto">
+        <!-- Section Header -->
+        <div class="mb-20 max-w-3xl mx-auto text-center lg:text-left lg:mx-0">
+            <span
+                class="inline-block px-3 py-1 text-[10px] font-black tracking-[0.2em] text-primary uppercase bg-primary/10 border border-primary/20 rounded-full mb-6"
+            >
+                {t("skills.badge")}
+            </span>
+            <h2 class="text-4xl md:text-7xl font-black mb-6 text-fg tracking-tighter">
+                {t("skills.title")}
+            </h2>
+            <div class="h-1.5 w-24 bg-primary rounded-full mb-8 mx-auto lg:mx-0"></div>
+            <p class="text-xl text-fg-muted leading-relaxed max-w-2xl">
+                {t("skills.description")}
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {
+                skills.map((skill) => (
+                    <div class="group relative p-10 md:p-12 rounded-[3.5rem] glass border border-glass-border transition-all duration-700 overflow-hidden bg-surface/50 backdrop-blur-xl">
+                        <!-- Gradient Glow (Permanent) -->
+                        <div class={`absolute -top-32 -right-32 w-64 h-64 bg-linear-to-br ${skill.color} blur-3xl opacity-30`}></div>
+                        
+                        <div class="relative z-10 h-full flex flex-col">
+                            <div class="flex items-center gap-6 mb-10">
+                                <div class="w-16 h-16 rounded-2xl bg-surface-lighter flex items-center justify-center border border-border/50 shadow-inner">
+                                    <skill.icon class={`${skill.iconColor} w-8 h-8`} />
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-black text-fg tracking-tight whitespace-nowrap">
+                                    {skill.title}
+                                </h3>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:gap-4 mt-auto">
+                                {skill.techs.map(tech => (
+                                    <div class="px-3 py-2.5 md:px-5 md:py-3 rounded-2xl bg-surface/80 border border-glass-border font-bold text-[11px] md:text-sm text-fg transition-all flex items-center justify-center md:justify-start gap-2 md:gap-3 active:scale-95 hover:border-primary/40">
+                                        {tech.themeAware ? (
+                                            <div 
+                                                class="w-4 h-4 md:w-5 md:h-5 bg-fg" 
+                                                style={{
+                                                    maskImage: `url(https://cdn.simpleicons.org/${tech.slug})`,
+                                                    webkitMaskImage: `url(https://cdn.simpleicons.org/${tech.slug})`,
+                                                    maskSize: 'contain',
+                                                    webkitMaskSize: 'contain',
+                                                    maskRepeat: 'no-repeat',
+                                                    webkitMaskRepeat: 'no-repeat',
+                                                    maskPosition: 'center',
+                                                    webkitMaskPosition: 'center'
+                                                }}
+                                            ></div>
+                                        ) : (
+                                            <img 
+                                                src={tech.customUrl || `https://cdn.simpleicons.org/${tech.slug}`} 
+                                                alt={tech.name} 
+                                                class="w-4 h-4 md:w-5 md:h-5 object-contain block opacity-100 transition-all"
+                                                loading="lazy"
+                                            />
+                                        )}
+                                        <span class="truncate">{tech.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <!-- Permanent bottom accent -->
+                        <div class="absolute bottom-0 left-0 w-full h-1.5 bg-surface-lighter overflow-hidden">
+                            <div class="w-1/4 group-hover:w-full h-full bg-linear-to-r from-primary to-accent transition-all duration-1000"></div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

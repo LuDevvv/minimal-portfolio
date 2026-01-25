@@ -1,0 +1,18 @@
+---
+import { getLangFromUrl } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-12 px-6 border-t border-glass-border">
+    <div class="container mx-auto text-center">
+        <div class="text-fg-muted/60 text-sm font-medium">
+            © {currentYear} Louis. {
+                lang === "es"
+                    ? "Todos los derechos reservados."
+                    : "All rights reserved."
+            }
+        </div>
+    </div>
+</footer>

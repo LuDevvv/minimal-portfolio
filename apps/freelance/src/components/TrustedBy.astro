@@ -1,0 +1,66 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const clients = [
+    {
+        name: "Musset Group",
+        class: "font-serif font-medium tracking-[0.2em] uppercase",
+    },
+    {
+        name: "AdrenalinaRD",
+        class: "font-black italic tracking-tighter -skew-x-6 text-xl",
+    },
+    { name: "Azteli", class: "font-serif font-bold text-xl tracking-tight" },
+    { name: "MEDIPRAXI", class: "font-bold tracking-tighter text-lg" },
+    {
+        name: "GRUPO CHAVÓN",
+        class: "font-extrabold uppercase tracking-widest text-lg",
+    },
+    { name: "MediaLife", class: "font-mono font-bold tracking-tight text-lg" },
+    {
+        name: "Riviera del Este",
+        class: "font-serif italic font-medium text-xl",
+    },
+    {
+        name: "Aurora Del Mar",
+        class: "font-light uppercase tracking-[0.25em] text-sm md:text-base",
+    },
+];
+---
+
+<section class="py-16 border-y border-white/10 bg-surface relative z-30">
+    <div class="container mx-auto px-6 text-center">
+        <p
+            class="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-12"
+        >
+            {t("social.trusted")}
+        </p>
+
+        <!-- High Contrast Static Grid -->
+        <div
+            class="flex flex-wrap justify-center items-center gap-x-12 gap-y-12 md:gap-x-20"
+        >
+            {
+                clients.map((client) => (
+                    <span
+                        class={`text-xl md:text-2xl text-fg hover:text-primary transition-colors duration-300 cursor-default select-none ${client.class}`}
+                    >
+                        {client.name === "AdrenalinaRD" ? (
+                            <span>
+                                Adrenalina
+                                <span class="text-primary not-italic inline-block skew-x-6">
+                                    RD
+                                </span>
+                            </span>
+                        ) : (
+                            client.name
+                        )}
+                    </span>
+                ))
+            }
+        </div>
+    </div>
+</section>

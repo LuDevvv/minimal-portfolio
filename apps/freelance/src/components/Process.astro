@@ -1,0 +1,114 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+import { Search, PenTool, Code2, Rocket, TrendingUp } from "lucide-astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const steps = [
+    {
+        number: "01",
+        icon: Search,
+        title: t("process.step1.title"),
+        desc: t("process.step1.desc"),
+    },
+    {
+        number: "02",
+        icon: PenTool,
+        title: t("process.step2.title"),
+        desc: t("process.step2.desc"),
+    },
+    {
+        number: "03",
+        icon: Code2,
+        title: t("process.step3.title"),
+        desc: t("process.step3.desc"),
+    },
+    {
+        number: "04",
+        icon: Rocket,
+        title: t("process.step4.title"),
+        desc: t("process.step4.desc"),
+    },
+    {
+        number: "05",
+        icon: TrendingUp,
+        title: t("process.step5.title"),
+        desc: t("process.step5.desc"),
+    },
+];
+---
+
+<section id="process" class="py-16 md:py-24 px-6 relative overflow-hidden reveal">
+    <!-- Background glow/blob -->
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"
+    >
+    </div>
+
+    <div class="container mx-auto max-w-5xl relative z-10">
+        <!-- Header -->
+        <div class="mb-16 max-w-2xl mx-auto text-center">
+            <span
+                class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-primary uppercase bg-primary/10 rounded-full mb-4"
+            >
+                {t("process.badge")}
+            </span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gradient">
+                {t("process.title")}
+            </h2>
+            <p class="text-lg text-fg-muted leading-relaxed">
+                {t("process.description")}
+            </p>
+        </div>
+
+        <div class="mt-24 space-y-0 relative">
+            {
+                steps.map((step, index) => (
+                    <div class="flex flex-col md:flex-row gap-6 md:gap-16 group">
+                        <!-- Icon Column -->
+                        <div class="flex flex-row md:flex-col items-center gap-4 md:gap-0">
+                            <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-surface-lighter border-2 border-primary/20 flex items-center justify-center text-primary font-black text-lg md:text-xl z-10 group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-lg shadow-primary/10 shrink-0">
+                                <step.icon class="w-5 h-5 md:w-6 md:h-6" />
+                            </div>
+                            {index !== steps.length - 1 && (
+                                <div class="hidden md:block w-0.5 h-full bg-linear-to-b from-primary/20 to-transparent my-2" />
+                            )}
+                             <h4 class="md:hidden text-xl font-bold text-fg">
+                                    {step.title}
+                            </h4>
+                        </div>
+
+                        <!-- Content Column -->
+                        <div
+                            class={`flex-1 pl-4 md:pl-0 ml-6 md:ml-0 md:border-l-0 md:pb-16 ${
+                                index === steps.length - 1
+                                    ? "pb-0"
+                                    : "pb-12 border-l-2 border-primary/10"
+                            }`}
+                        >
+                            <div class="hidden md:flex items-center gap-4 mb-3">
+                                <span class="text-5xl font-black text-fg/10 select-none">
+                                    {step.number}
+                                </span>
+                                <h4 class="text-2xl md:text-3xl font-bold text-fg">
+                                    {step.title}
+                                </h4>
+                            </div>
+                            <div class="glass p-6 md:p-8 rounded-3xl md:rounded-4xl border border-glass-border hover:border-primary/20 transition-all card-gradient group-hover:-translate-y-1 duration-300">
+                                <p class="text-fg-muted leading-relaxed text-base md:text-lg max-w-xl">
+                                    {step.desc}
+                                </p>
+                                <div class="mt-6 flex gap-2 overflow-hidden opacity-30 group-hover:opacity-60 transition-opacity">
+                                    <div class="h-1.5 w-12 bg-primary rounded-full" />
+                                    <div class="h-1.5 w-6 bg-fg-muted rounded-full" />
+                                    <div class="h-1.5 w-6 bg-fg-muted rounded-full" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
