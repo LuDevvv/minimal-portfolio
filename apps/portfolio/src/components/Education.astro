@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/ui";
-import { Award, BookOpen, GraduationCap, Cloud, Cpu, ArrowUpRight } from "lucide-astro";
+import { Award, BookOpen, Cloud, Cpu, ArrowUpRight } from "lucide-astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -65,7 +65,7 @@ const studies = [
         <div class="grid gap-6">
           {certifications.map(cert => (
             <div class="group relative bg-canvas rounded-3xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5">
-              <div class="aspect-[4/3] overflow-hidden bg-surface-lighter relative">
+              <div class="aspect-4/3 overflow-hidden bg-surface-lighter relative">
                  {/* Placeholder for the image */}
                  <div class="absolute inset-0 flex items-center justify-center text-fg-muted/20">
                     <Award class="w-16 h-16" />
