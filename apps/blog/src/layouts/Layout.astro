@@ -1,0 +1,92 @@
+---
+import "@fontsource/plus-jakarta-sans";
+import "../styles/tailwind.css";
+import { Home, Search, Mail, Github, Linkedin } from "lucide-astro";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Luis Garcia's Personal Blog - Tech, Development and more.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body class="bg-canvas text-fg min-h-screen">
+        <!-- Header -->
+        <header class="fixed top-0 inset-x-0 z-50 glass border-b py-4">
+            <nav class="container flex items-center justify-between">
+                <a
+                    href="/"
+                    class="text-xl font-black tracking-tighter hover:text-primary transition-colors flex items-center gap-2"
+                >
+                    <div
+                        class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white text-xs"
+                    >
+                        LG
+                    </div>
+                    <span>Blog</span>
+                </a>
+                <div class="flex items-center gap-6">
+                    <a
+                        href="https://portfolio.withlouis.com"
+                        class="text-xs font-black uppercase tracking-widest hover:text-primary transition-colors"
+                        >Portfolio</a
+                    >
+                    <a
+                        href="mailto:ludevgarcialouis@gmail.com"
+                        class="p-2 rounded-full hover:bg-surface-lighter transition-colors"
+                        title="Contact"
+                    >
+                        <Mail class="w-5 h-5" />
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="pt-32 pb-24">
+            <slot />
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-border py-12">
+            <div
+                class="container flex flex-col md:flex-row items-center justify-between gap-8"
+            >
+                <div>
+                    <p class="text-sm font-bold opacity-50">
+                        © {new Date().getFullYear()} Luis Garcia. Built with Astro.
+                    </p>
+                </div>
+                <div class="flex gap-4">
+                    <a
+                        href="https://github.com/ludevvv"
+                        target="_blank"
+                        class="p-2 rounded-xl border border-border hover:border-primary hover:text-primary transition-all"
+                    >
+                        <Github class="w-5 h-5" />
+                    </a>
+                    <a
+                        href="https://linkedin.com/in/ludevvv"
+                        target="_blank"
+                        class="p-2 rounded-xl border border-border hover:border-primary hover:text-primary transition-all"
+                    >
+                        <Linkedin class="w-5 h-5" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

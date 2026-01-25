@@ -1,0 +1,18 @@
+[2m24:32:25[22m [34m[content][39m Syncing content
+[2m24:32:25[22m [34m[content][39m Synced content
+[2m24:32:25[22m [34m[types][39m Generated [2m1.59s[22m
+[2m24:32:25[22m [34m[build][39m output: [34m"static"[39m
+[2m24:32:25[22m [34m[build][39m mode: [34m"static"[39m
+[2m24:32:25[22m [34m[build][39m directory: [34mC:\Github\Repositories\Personal\withlouis\apps\blog\dist\[39m
+[2m24:32:25[22m [34m[build][39m Collecting build info...
+[2m24:32:25[22m [34m[build][39m [32m✓ Completed in 1.69s.[39m
+[2m24:32:25[22m [34m[build][39m Building static entrypoints...
+[31m[1m24:32:28[22m [ERROR] [vite][39m [31m✗[39m Build failed in 2.21s
+[@tailwindcss/vite:generate:build] Cannot apply unknown utility class `text-3xl`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+file: C:/Github/Repositories/Personal/withlouis/apps/blog/src/pages/blog/[...slug].astro?astro&type=style&index=0&lang.css
+  [1mStack trace:[22m
+[2m    at onInvalidCandidate (file:///C:/Github/Repositories/Personal/withlouis/node_modules/.pnpm/tailwindcss@4.1.18/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:21:1314)
+    at file:///C:/Github/Repositories/Personal/withlouis/node_modules/.pnpm/tailwindcss@4.1.18/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:21:355
+    at I (file:///C:/Github/Repositories/Personal/withlouis/node_modules/.pnpm/tailwindcss@4.1.18/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:3:1377)
+    at Wi (file:///C:/Github/Repositories/Personal/withlouis/node_modules/.pnpm/tailwindcss@4.1.18/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:38:294)
+    at async rf (file:///C:/Github/Repositories/Personal/withlouis/node_modules/.pnpm/tailwindcss@4.1.18/node_modules/tailwindcss/dist/chunk-CT46QCH7.mjs:38:1406)[22m

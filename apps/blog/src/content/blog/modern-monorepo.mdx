@@ -1,0 +1,23 @@
+---
+title: "Modern Web Architectures: The Power of Monorepos"
+description: "Why I chose a monorepo structure for my personal projects and how it scales."
+pubDate: "2026-01-24"
+category: "Architecture"
+---
+
+# Modern Web Architectures
+
+When I started building out my latest set of projects—my personal portfolio, a blog, and a link scraper—I realized I was duplicating a lot of my design system and core components. Every time I changed a color or a font in my portfolio, I had to manually update the other apps.
+
+Enter the **Monorepo**.
+
+Using a monorepo allows me to:
+1. **Share Components**: I can have a `packages/ui` folder that all my apps import from.
+2. **Unified Dependencies**: Upgrading a library like Tailwind CSS is done once at the root.
+3. **Better DX**: I can run `pnpm dev` and have all my projects running simultaneously.
+
+## Deployment with Cloudflare
+
+Deploying these apps to Cloudflare is seamless. Each app in the `apps/` directory can be mapped to its own subdomain (e.g., `blog.withlouis.com`) while sharing the same source of truth.
+
+Stay tuned for more updates on my tech stack!
