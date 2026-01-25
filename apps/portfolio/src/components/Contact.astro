@@ -1,0 +1,63 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+import { Github, Linkedin } from "lucide-astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="py-16 md:py-24 px-6 reveal">
+    <div class="container mx-auto">
+        <div
+            class="glass p-8 md:p-24 rounded-[3rem] border border-glass-border relative overflow-hidden text-center max-w-5xl mx-auto"
+        >
+            <div
+                class="absolute -top-24 -right-24 w-64 h-64 bg-primary opacity-20 blur-[100px]"
+            >
+            </div>
+
+            <!-- Header -->
+            <div class="mb-12 max-w-2xl mx-auto">
+                <span
+                    class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-primary uppercase bg-primary/10 rounded-full mb-4"
+                >
+                    {t("contact.badge")}
+                </span>
+                <h2
+                    class="text-4xl md:text-5xl font-extrabold mb-6 text-gradient"
+                >
+                    {t("contact.title")}
+                </h2>
+                <p class="text-lg text-fg-muted leading-relaxed">
+                    {t("contact.description")}
+                </p>
+            </div>
+
+            <a
+                href="mailto:ludevgarcialouis@gmail.com"
+                class="inline-block text-xl sm:text-3xl md:text-5xl font-black mb-12 hover:text-primary transition-colors text-fg break-all px-4"
+            >
+                ludevgarcialouis@gmail.com
+            </a>
+
+            <div class="flex flex-wrap justify-center gap-6">
+                <a
+                    href="https://github.com/ludevvv"
+                    target="_blank"
+                    class="flex items-center gap-3 px-8 py-4 bg-surface hover:bg-surface-lighter border border-glass-border rounded-2xl font-bold transition-all text-fg"
+                >
+                    <Github class="w-5 h-5" />
+                    {t("contact.github")}
+                </a>
+                <a
+                    href="https://linkedin.com/in/ludevvv"
+                    target="_blank"
+                    class="flex items-center gap-3 px-8 py-4 bg-surface hover:bg-surface-lighter border border-glass-border rounded-2xl font-bold transition-all text-fg"
+                >
+                    <Linkedin class="w-5 h-5" />
+                    {t("contact.linkedin")}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
