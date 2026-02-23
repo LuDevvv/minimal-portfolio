@@ -11,7 +11,7 @@ export default defineConfig({
   adapter: cloudflare(),
 
   // Your production domain
-  site: 'https://withlouis.com',
+  site: 'https://ludevgarcia.com',
 
   // Clean URLs - /about instead of /about.html
   trailingSlash: 'never',

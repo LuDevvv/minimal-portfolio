@@ -5,7 +5,7 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
     output: 'static',
     adapter: cloudflare(),
-    site: 'https://links.withlouis.com',
+    site: 'https://links.ludevgarcia.com',
     trailingSlash: 'never',
     build: {
         format: 'directory',
