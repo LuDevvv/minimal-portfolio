@@ -1,13 +1,13 @@
-# withlouis
+# ludevgarcia
 
 A monorepo containing multiple Astro sites deployed to Cloudflare Pages.
 
 ## Structure
 
 ```
-withlouis/
+ludevgarcia/
 ├── apps/
-│   ├── freelance/     → Main site (withlouis.com)
+│   ├── freelance/     → Main site (ludevgarcia.com)
 │   ├── portfolio/     → Personal portfolio
 │   └── blog/          → Technical blog
 ├── packages/
@@ -68,31 +68,40 @@ pnpm build:blog
 4. Select your repository
 5. Configure build settings:
 
-#### For `freelance` (withlouis.com):
+#### For `freelance` (ludevgarcia.com):
 
 | Setting | Value |
 |---------|-------|
 | Framework preset | Astro |
-| Build command | `pnpm --filter @withlouis/freelance build` |
+| Build command | `pnpm --filter @ludev/freelance build` |
 | Build output directory | `apps/freelance/dist` |
 | Root directory | `/` |
 
-#### For `portfolio`:
+#### For `portfolio` (portfolio.ludevgarcia.com):
 
 | Setting | Value |
 |---------|-------|
 | Framework preset | Astro |
-| Build command | `pnpm --filter @withlouis/portfolio build` |
+| Build command | `pnpm --filter @ludev/portfolio build` |
 | Build output directory | `apps/portfolio/dist` |
 | Root directory | `/` |
 
-#### For `blog`:
+#### For `blog` (blog.ludevgarcia.com):
 
 | Setting | Value |
 |---------|-------|
 | Framework preset | Astro |
-| Build command | `pnpm --filter @withlouis/blog build` |
+| Build command | `pnpm --filter @ludev/blog build` |
 | Build output directory | `apps/blog/dist` |
+| Root directory | `/` |
+
+#### For `linkme` (links.ludevgarcia.com):
+
+| Setting | Value |
+|---------|-------|
+| Framework preset | Astro |
+| Build command | `pnpm --filter @ludev/linkme build` |
+| Build output directory | `apps/linkme/dist` |
 | Root directory | `/` |
 
 6. Add environment variable:
@@ -113,16 +122,16 @@ npm install -g wrangler
 wrangler login
 
 # Deploy (first time - creates project)
-wrangler pages deploy apps/freelance/dist --project-name withlouis
+wrangler pages deploy apps/freelance/dist --project-name ludevgarcia
 
 # Subsequent deployments
-wrangler pages deploy apps/freelance/dist --project-name withlouis
+wrangler pages deploy apps/freelance/dist --project-name ludevgarcia
 ```
 
 ### Custom Domain Setup
 
 1. In Cloudflare Pages project settings, go to "Custom domains"
-2. Add your domain (e.g., `withlouis.com`)
+2. Add your domain (e.g., `ludevgarcia.com`)
 3. If domain is already on Cloudflare, it will auto-configure DNS
 4. If not, add the provided CNAME record to your DNS
 
@@ -148,7 +157,7 @@ wrangler pages deploy apps/freelance/dist --project-name withlouis
 
 ### Freelance (`apps/freelance`)
 
-Main professional site at `withlouis.com`. Features:
+Main professional site at `ludevgarcia.com`. Features:
 - Hero section with stats
 - Services overview
 - Project showcase
@@ -156,12 +165,12 @@ Main professional site at `withlouis.com`. Features:
 
 ### Portfolio (`apps/portfolio`)
 
-Personal portfolio at `portfolio.withlouis.com`. Features:
+Personal portfolio at `portfolio.ludevgarcia.com`. Features:
 - Coming soon
 
 ### Blog (`apps/blog`)
 
-Technical blog at `blog.withlouis.com`. Features:
+Technical blog at `blog.ludevgarcia.com`. Features:
 - MDX support
 - Coming soon
 

@@ -1,5 +1,5 @@
 {
-    "name": "@withlouis/seo",
+    "name": "@ludev/seo",
     "version": "1.0.0",
     "type": "module",
     "main": "./src/index.ts",

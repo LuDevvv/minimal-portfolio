@@ -1,5 +1,5 @@
 {
-  "name": "@withlouis/linkme",
+  "name": "@ludev/linkme",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
     "@fontsource/plus-jakarta-sans": "^5.2.8",
-    "astro": "^5.16.15",
+    "astro": "^5.1.0",
     "lucide-astro": "^0.556.0"
   },
   "devDependencies": {

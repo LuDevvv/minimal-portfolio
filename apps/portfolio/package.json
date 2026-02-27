@@ -1,5 +1,5 @@
 {
-    "name": "@withlouis/portfolio",
+    "name": "@ludev/portfolio",
     "private": true,
     "version": "1.0.0",
     "type": "module",
@@ -13,8 +13,8 @@
     "dependencies": {
         "@astrojs/cloudflare": "^12.6.12",
         "@fontsource/plus-jakarta-sans": "^5.2.8",
-        "@withlouis/seo": "workspace:*",
-        "@withlouis/ui": "workspace:*",
+        "@ludev/seo": "workspace:*",
+        "@ludev/ui": "workspace:*",
         "astro": "^5.1.0"
     },
     "devDependencies": {

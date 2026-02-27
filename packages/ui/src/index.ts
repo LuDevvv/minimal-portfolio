@@ -1,4 +1,4 @@
-// @withlouis/ui - Shared UI components and utilities
+// @ludevgarcia- Shared UI components and utilities
 
 // Re-export all components
 export * from './components/Button';

@@ -23,10 +23,10 @@ importers:
       '@fontsource/plus-jakarta-sans':
         specifier: ^5.2.8
         version: 5.2.8
-      '@withlouis/seo':
+      '@ludev/seo':
         specifier: workspace:*
         version: link:../../packages/seo
-      '@withlouis/ui':
+      '@ludev/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       astro:
@@ -60,15 +60,15 @@ importers:
       '@fontsource/plus-jakarta-sans':
         specifier: ^5.2.8
         version: 5.2.8
+      '@ludev/seo':
+        specifier: workspace:*
+        version: link:../../packages/seo
+      '@ludev/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.1.18(vite@6.4.1(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2))
-      '@withlouis/seo':
-        specifier: workspace:*
-        version: link:../../packages/seo
-      '@withlouis/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       astro:
         specifier: ^5.1.0
         version: 5.16.9(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.55.1)(typescript@5.9.3)(yaml@2.8.2)
@@ -104,7 +104,7 @@ importers:
         specifier: ^5.2.8
         version: 5.2.8
       astro:
-        specifier: ^5.16.15
+        specifier: ^5.1.0
         version: 5.16.15(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.55.1)(typescript@5.9.3)(yaml@2.8.2)
       lucide-astro:
         specifier: ^0.556.0
@@ -128,10 +128,10 @@ importers:
       '@fontsource/plus-jakarta-sans':
         specifier: ^5.2.8
         version: 5.2.8
-      '@withlouis/seo':
+      '@ludev/seo':
         specifier: workspace:*
         version: link:../../packages/seo
-      '@withlouis/ui':
+      '@ludev/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       astro:
