@@ -9,7 +9,9 @@ ludevgarcia/
 ├── apps/
 │   ├── freelance/     → Main site (ludevgarcia.com)
 │   ├── portfolio/     → Personal portfolio
-│   └── blog/          → Technical blog
+│   ├── blog/          → Technical blog
+│   ├── linkme/        → Link in bio platform
+│   └── lalabs/        → Software innovation studio (lalabs.ludevgarcia.com)
 ├── packages/
 │   ├── ui/            → Shared UI components
 │   └── seo/           → SEO utilities
@@ -44,6 +46,7 @@ pnpm dev
 pnpm dev:freelance    # Port 4321
 pnpm dev:portfolio    # Port 4322
 pnpm dev:blog         # Port 4323
+pnpm dev:lalabs       # Port 4324
 ```
 
 ### Build
@@ -56,6 +59,7 @@ pnpm build
 pnpm build:freelance
 pnpm build:portfolio
 pnpm build:blog
+pnpm build:lalabs
 ```
 
 ## Cloudflare Pages Deployment
@@ -102,6 +106,15 @@ pnpm build:blog
 | Framework preset | Astro |
 | Build command | `pnpm --filter @ludev/linkme build` |
 | Build output directory | `apps/linkme/dist` |
+| Root directory | `/` |
+
+#### For `lalabs` (lalabs.ludevgarcia.com):
+
+| Setting | Value |
+|---------|-------|
+| Framework preset | Astro |
+| Build command | `pnpm --filter @ludev/lalabs build` |
+| Build output directory | `apps/lalabs/dist` |
 | Root directory | `/` |
 
 6. Add environment variable:
@@ -173,6 +186,13 @@ Personal portfolio at `portfolio.ludevgarcia.com`. Features:
 Technical blog at `blog.ludevgarcia.com`. Features:
 - MDX support
 - Coming soon
+
+### L.A. Labs (`apps/lalabs`)
+
+Software innovation studio landing page at `lalabs.ludevgarcia.com`. Features:
+- Portfolio presentation
+- Core capabilities
+- Legal pages (Privacy, Terms)
 
 ## Shared Packages
 

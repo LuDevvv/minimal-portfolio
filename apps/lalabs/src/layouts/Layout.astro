@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import '@fontsource/geist-sans/400.css';
+import '@fontsource/geist-sans/500.css';
+import '@fontsource/geist-sans/600.css';
+import '@fontsource/geist-sans/700.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "L.A. Labs - Engineering Next-Generation Digital Ecosystems." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | L.A. Labs</title>
+	</head>
+	<body class="bg-slate-950 text-slate-50 min-h-screen flex flex-col font-sans">
+        <!-- Minimal Header -->
+        <header class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <a href="/" class="text-xl font-bold tracking-tight">
+                    L.A. <span class="text-sky-400">Labs</span>
+                </a>
+                <nav class="hidden sm:flex gap-8 text-sm font-medium text-slate-300">
+                    <a href="#portfolio" class="hover:text-white transition-colors">Our Platforms</a>
+                    <a href="#capabilities" class="hover:text-white transition-colors">Capabilities</a>
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+		<main class="flex-grow pt-20">
+			<slot />
+		</main>
+
+        <!-- Legal Footer -->
+        <footer class="border-t border-white/5 bg-slate-950/50 mt-24">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-xl font-bold tracking-tight mb-2">L.A. Labs</h3>
+                        <p class="text-slate-400 text-sm max-w-sm">
+                            A software innovation studio specializing in edge-native, multi-tenant solutions. Based in the Dominican Republic.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col md:items-end gap-4">
+                        <a href="mailto:ludevgarcialouis@gmail.com" class="text-slate-300 hover:text-sky-400 transition-colors text-sm font-medium">
+                            ludevgarcialouis@gmail.com
+                        </a>
+                        <div class="flex gap-6 text-sm">
+                            <a href="/privacy" class="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
+                            <a href="/terms" class="text-slate-400 hover:text-white transition-colors">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-white/5 mt-8 pt-8 text-center text-xs text-slate-500">
+                    &copy; {new Date().getFullYear()} L.A. Labs. All rights reserved.
+                </div>
+            </div>
+        </footer>
+	</body>
+</html>
