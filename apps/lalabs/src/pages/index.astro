@@ -1,0 +1,257 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+    ChevronRight,
+    ArrowRight,
+    CheckCircle2,
+    Shield,
+    Globe2,
+    Zap,
+} from "lucide-astro";
+---
+
+<Layout title="Engineering Next-Generation Digital Ecosystems">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-900/20 via-slate-950 to-slate-950 -z-10"
+        >
+        </div>
+        <div
+            class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        >
+            <div
+                class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-sky-400 to-sky-600 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            >
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1
+                class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-8"
+            >
+                Engineering <br class="hidden md:block" />Next-Generation <span
+                    class="text-gradient">Digital Ecosystems.</span
+                >
+            </h1>
+            <p
+                class="mt-6 text-lg leading-8 text-slate-300 max-w-3xl mx-auto mb-10"
+            >
+                Based in the Dominican Republic, L.A. Labs is a software
+                innovation studio specializing in edge-native, multi-tenant
+                solutions that empower businesses to scale through automation
+                and secure digital commerce.
+            </p>
+            <div class="flex items-center justify-center gap-x-6">
+                <a
+                    href="#portfolio"
+                    class="rounded-full bg-sky-500 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 transition-all flex items-center gap-2"
+                >
+                    Explore our Platforms <ArrowRight class="w-4 h-4" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Portfolio -->
+    <section id="portfolio" class="py-24 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2
+                    class="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+                >
+                    Our Platforms
+                </h2>
+                <p class="mt-4 text-lg text-slate-400">
+                    Production-ready ecosystems designed for scale.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- TikexRD -->
+                <div
+                    class="glass-card p-8 group hover:border-sky-500/30 transition-all"
+                >
+                    <div
+                        class="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-sky-600/20 border border-sky-500/30 flex items-center justify-center mb-6"
+                    >
+                        <Shield class="w-6 h-6 text-sky-400" />
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors"
+                    >
+                        TikexRD
+                    </h3>
+                    <p class="text-sm font-medium text-sky-400/80 mb-4">
+                        Comprehensive Ticketing & Event Management.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        A specialized platform for the Dominican market that
+                        simplifies ticket sales and raffle management with
+                        military-grade security and real-time analytics.
+                    </p>
+                </div>
+
+                <!-- Vora AI -->
+                <div
+                    class="glass-card p-8 group hover:border-sky-500/30 transition-all"
+                >
+                    <div
+                        class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border border-indigo-500/30 flex items-center justify-center mb-6"
+                    >
+                        <Zap class="w-6 h-6 text-indigo-400" />
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors"
+                    >
+                        Vora AI
+                    </h3>
+                    <p class="text-sm font-medium text-indigo-400/80 mb-4">
+                        Intelligent Business Automation.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Advanced AI assistants integrated with WhatsApp and
+                        Instagram to automate customer service and sales for
+                        modern enterprises.
+                    </p>
+                </div>
+
+                <!-- Ascent -->
+                <div
+                    class="glass-card p-8 group hover:border-sky-500/30 transition-all"
+                >
+                    <div
+                        class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 border border-emerald-500/30 flex items-center justify-center mb-6"
+                    >
+                        <Globe2 class="w-6 h-6 text-emerald-400" />
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors"
+                    >
+                        Ascent
+                    </h3>
+                    <p class="text-sm font-medium text-emerald-400/80 mb-4">
+                        Personal Performance OS.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        A data-driven application designed to optimize personal
+                        growth and habit tracking through behavioral science.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Capabilities -->
+    <section id="capabilities" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="flex-1">
+                    <h2
+                        class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6"
+                    >
+                        Core Capabilities
+                    </h2>
+                    <p class="mt-4 text-lg text-slate-400 mb-8 max-w-xl">
+                        Built for modern commerce. Our foundation relies on
+                        resilient architecture, global deployment strategies,
+                        and rigorous security standards.
+                    </p>
+
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <CheckCircle2
+                                class="flex-shrink-0 w-6 h-6 text-sky-400 mt-1"
+                            />
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">
+                                    Multi-tenant Architecture
+                                </h4>
+                                <p class="text-slate-400 mt-1 text-sm">
+                                    Secure, isolated environments for every
+                                    business we serve.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <CheckCircle2
+                                class="flex-shrink-0 w-6 h-6 text-sky-400 mt-1"
+                            />
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">
+                                    Edge-Native Performance
+                                </h4>
+                                <p class="text-slate-400 mt-1 text-sm">
+                                    Deploying at the edge for sub-millisecond
+                                    latency worldwide.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <CheckCircle2
+                                class="flex-shrink-0 w-6 h-6 text-sky-400 mt-1"
+                            />
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">
+                                    Secure Commerce
+                                </h4>
+                                <p class="text-slate-400 mt-1 text-sm">
+                                    Integrated with global payment standards to
+                                    ensure frictionless transactions.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1 w-full max-w-lg">
+                    <!-- Decorative Visual -->
+                    <div
+                        class="aspect-square rounded-full bg-gradient-to-tr from-sky-900/40 to-slate-800/40 border border-white/10 flex items-center justify-center relative shadow-2xl overflow-hidden glass-card"
+                    >
+                        <div
+                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNHYtbGwtMjItMjJtMCwwbDIyLTIydjBIMzZ2MG0wLDBIMTR2MG0wLDB2MjJ2MjJtMCwwaDIybTAsMFYxMHYyMm0wLDBMMzYgMzQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvZz48L3N2Zz4=')] opacity-50"
+                        >
+                        </div>
+                        <div class="text-center relative z-10 px-8">
+                            <Shield
+                                class="w-16 h-16 text-sky-400 mx-auto mb-4"
+                            />
+                            <h3 class="text-2xl font-bold text-white mb-2">
+                                Commerce Ready
+                            </h3>
+                            <p class="text-sm text-slate-400">
+                                Optimized for processing secure transactions
+                                globally using Merchant of Record architectures.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Studio -->
+    <section id="about" class="py-32">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-white mb-8">
+                About the Studio
+            </h2>
+            <div class="glass-card p-10 relative overflow-hidden text-left">
+                <div
+                    class="absolute -right-20 -top-20 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl"
+                >
+                </div>
+                <p class="text-lg text-slate-300 leading-relaxed z-10 relative">
+                    <strong class="text-white font-semibold">L.A. Labs</strong> was
+                    founded by <strong>Luis Angel Garcia Louis</strong>, a
+                    software architect dedicated to building high-performance
+                    applications based in the Dominican Republic. We believe in
+                    the power of micro-SaaS and intelligent systems to solve
+                    specific regional and global problems. Our focus is on
+                    delivering elite-level software that businesses can rely on
+                    to scale without friction.
+                </p>
+            </div>
+        </div>
+    </section>
+</Layout>

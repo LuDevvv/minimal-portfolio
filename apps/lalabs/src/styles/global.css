@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent-light: #38bdf8; /* sky-400 */
+  --color-accent: #0284c7; /* sky-600 */
+  --color-accent-dark: #0369a1; /* sky-700 */
+}
+
+@layer base {
+  :root {
+    --bg-color: #020617; /* slate-950 */
+    --text-primary: #f8fafc; /* slate-50 */
+    --text-secondary: #94a3b8; /* slate-400 */
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Geist Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-600;
+  }
+}

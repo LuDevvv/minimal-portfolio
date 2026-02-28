@@ -10,6 +10,7 @@ This guide explains how to map the apps in this monorepo to their respective sub
 | `apps/portfolio` | `portfolio.ludevgarcia.com` | `ludevgarcia-portfolio` |
 | `apps/blog` | `blog.ludevgarcia.com` | `ludevgarcia-blog` |
 | `apps/linkme` | `links.ludevgarcia.com` | `ludevgarcia-links` |
+| `apps/lalabs` | `lalabs.ludevgarcia.com` | `lalabs` |
 
 ## Setup Instructions (Cloudflare Dashboard)
 
@@ -35,6 +36,7 @@ Para que cada proyecto responda en su subdominio correspondiente, sigue estos pa
 | `ludevgarcia-portfolio`| `portfolio.ludevgarcia.com`       |
 | `ludevgarcia-blog`     | `blog.ludevgarcia.com`            |
 | `ludevgarcia-links`    | `links.ludevgarcia.com`           |
+| `lalabs`               | `lalabs.ludevgarcia.com`          |
 
 ## Common Build Settings
 - **Node.js Version**: `20` (Set via Environment Variable `NODE_VERSION`)

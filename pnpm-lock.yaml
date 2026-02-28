@@ -95,6 +95,31 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  apps/lalabs:
+    dependencies:
+      '@astrojs/cloudflare':
+        specifier: ^12.6.12
+        version: 12.6.12(astro@5.16.15(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.55.1)(typescript@5.9.3)(yaml@2.8.2))(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)
+      '@fontsource/geist-sans':
+        specifier: ^5.1.0
+        version: 5.2.5
+      astro:
+        specifier: ^5.1.0
+        version: 5.16.15(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.55.1)(typescript@5.9.3)(yaml@2.8.2)
+      lucide-astro:
+        specifier: ^0.556.0
+        version: 0.556.0(astro@5.16.15(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.55.1)(typescript@5.9.3)(yaml@2.8.2))
+    devDependencies:
+      '@tailwindcss/vite':
+        specifier: ^4.1.18
+        version: 4.1.18(vite@6.4.1(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2))
+      tailwindcss:
+        specifier: ^4.1.18
+        version: 4.1.18
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+
   apps/linkme:
     dependencies:
       '@astrojs/cloudflare':
@@ -632,6 +657,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/geist-sans@5.2.5':
+    resolution: {integrity: sha512-anllOHyJbElRs9fV15TeDRqAeb1IKm4bSknPl6ZMoyPTx1BBy7logudcUwpNjmQLkzn4Q0JGQLRCUKJYoyST6A==}
 
   '@fontsource/plus-jakarta-sans@5.2.8':
     resolution: {integrity: sha512-P5qE49fqdeD+7DXH1KBxmMPlB17LTz1zvBhFH0tFzfnYTKVJVyb0pR6plh0ZGXxcB+Oayb54FZZw3V42/DawTw==}
@@ -3345,6 +3373,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.4':
     optional: true
+
+  '@fontsource/geist-sans@5.2.5': {}
 
   '@fontsource/plus-jakarta-sans@5.2.8': {}
 
