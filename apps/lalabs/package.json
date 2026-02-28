@@ -8,7 +8,7 @@
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "deploy": "astro build && npx wrangler pages deploy dist --project-name lalabs"
+        "deploy": "astro build && npx wrangler pages deploy dist --project-name lalabs --branch main"
     },
     "dependencies": {
         "@astrojs/cloudflare": "^12.6.12",
